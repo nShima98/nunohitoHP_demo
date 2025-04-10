@@ -204,3 +204,42 @@ $(document).ready(function() {
 $(function(){
     // ... existing code ...
 });
+
+// 要素生成関数の定義
+function createNavPcBox() {
+    // ... existing code ...
+}
+
+// ページ読み込み時に実行する処理
+window.addEventListener('load', function() {
+    // 要素の生成
+    createNavPcBox();
+    createFooter();
+    
+    // ハンバーガーメニューの処理
+    const openBtnPC = document.querySelector('.hbg-btn-open');
+    const closeBtnPC = document.querySelector('.hbg-btn-close');
+    const navPcActive = document.querySelector('.nav-pc');
+    const overlay = document.querySelector('.overlay');
+    
+    //NemuOpen
+    openBtnPC.addEventListener('click', () => {
+        openBtnPC.classList.toggle('active');
+        navPcActive.classList.toggle('active');
+        overlay.classList.add('active');
+    });
+    
+    //NemuClose
+    closeBtnPC.addEventListener('click', () => {
+        openBtnPC.classList.toggle('active');
+        navPcActive.classList.toggle('active');
+        overlay.classList.remove('active');
+    });
+    
+    // オーバーレイをクリックしても閉じられるように
+    overlay.addEventListener('click', () => {
+        openBtnPC.classList.remove('active');
+        navPcActive.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+});
