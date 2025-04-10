@@ -96,150 +96,109 @@ document.addEventListener('DOMContentLoaded', function() {
     // オーバーレイクリック時のメニュー閉じる処理を削除
 });
 
-// Footerの生成
-function createFooter() {
-    const footer = document.getElementById('footer');
-    
-    // ナビゲーションリンク
-    const navLinks = document.createElement('nav');
-    navLinks.id = 'footer-link';
-    
-    const links = [
+// ナビゲーション要素を生成する関数
+function generateNavigation() {
+    const navPcBox = document.querySelector('.nav-pc-box');
+    if (!navPcBox) return;
+
+    // タイトル部分の生成
+    const titleHTML = `
+        <div class="nav-pc-title">
+            <h1>Hitomi Nunokawa</h1>
+            <h2>OfficialWebsite</h2>
+        </div>
+    `;
+
+    // ナビゲーションリンクの生成
+    const navLinks = [
         { href: 'index.html', text: 'Top' },
         { href: 'news.html', text: 'News' },
         { href: 'works.html', text: 'Works' },
         { href: 'profile.html', text: 'Profile' },
         { href: 'gallery.html', text: 'Gallery' }
     ];
-    
-    links.forEach(link => {
-        const a = document.createElement('a');
-        a.href = link.href;
-        a.textContent = link.text;
-        navLinks.appendChild(a);
-    });
-    
-    // SNSリンク
-    const footerSns = document.createElement('div');
-    footerSns.id = 'footer-sns';
-    
-    // Followリンク
-    const snsLink = document.createElement('nav');
-    snsLink.id = 'sns-link';
-    
-    const followSpan = document.createElement('span');
-    followSpan.textContent = 'Follow';
-    snsLink.appendChild(followSpan);
-    
-    const followLinks = [
-        { href: 'https://x.com/h_T0m_1103', src: 'images/X_logo.png', alt: '布川仁美X' },
-        { href: 'https://www.instagram.com/ppppppppppooo___/?hl=ja', src: 'images/Instagram_logo.png', alt: '布川仁美Instagram' }
-    ];
-    
-    followLinks.forEach(link => {
-        const a = document.createElement('a');
-        a.href = link.href;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        
-        const img = document.createElement('img');
-        img.className = 'sns-logo';
-        img.src = link.src;
-        img.alt = link.alt;
-        
-        a.appendChild(img);
-        snsLink.appendChild(a);
-    });
-    
-    // Shareリンク
-    const snsShare = document.createElement('nav');
-    snsShare.id = 'sns-share';
-    
-    const shareSpan = document.createElement('span');
-    shareSpan.textContent = 'Share';
-    snsShare.appendChild(shareSpan);
-    
-    const shareLinks = [
-        { href: 'https://twitter.com/intent/tweet?text=布川仁美 official website&url=https://nshima98.github.io/HitomiHP2/', src: 'images/X_logo.png', alt: 'Xでシェア' },
-        { href: 'http://www.facebook.com/share.php?u=https://nshima98.github.io/HitomiHP2/', src: 'images/Facebook_Logo_Secondary.png', alt: 'facebookでシェア' },
-        { href: 'http://line.me/R/msg/text/?https://nshima98.github.io/HitomiHP2/', src: 'images/LINE_logo.png', alt: 'LINEでシェア' }
-    ];
-    
-    shareLinks.forEach(link => {
-        const a = document.createElement('a');
-        a.href = link.href;
-        a.target = '_blank';
-        a.rel = 'nofollow noopener';
-        
-        const img = document.createElement('img');
-        img.className = 'sns-logo';
-        img.src = link.src;
-        img.alt = link.alt;
-        
-        a.appendChild(img);
-        snsShare.appendChild(a);
-    });
-    
-    // フッター名
-    const footerName = document.createElement('span');
-    footerName.id = 'footer-name';
-    footerName.textContent = '布川仁美 official';
-    
-    // 要素の組み立て
-    footerSns.appendChild(snsLink);
-    footerSns.appendChild(snsShare);
-    
-    footer.appendChild(navLinks);
-    footer.appendChild(footerSns);
-    footer.appendChild(footerName);
+
+    const navLinksHTML = `
+        <div class="nav-pc-link">
+            ${navLinks.map(link => `
+                <a class="nav-pc-link-btn" href="${link.href}">${link.text}</a>
+            `).join('')}
+        </div>
+    `;
+
+    // SNSセクションの生成
+    const snsHTML = `
+        <div class="nav-pc-sns">
+            <div class="nav-pc-sns-link">
+                <span>Follow</span>
+                <a href="https://x.com/h_T0m_1103" target="_blank" rel="noopener noreferrer">
+                    <img class="sns-logo" src="images/X_logo.png" alt="布川仁美X">
+                </a>
+                <a href="https://www.instagram.com/ppppppppppooo___/?hl=ja" target="_blank" rel="noopener noreferrer">
+                    <img class="sns-logo" src="images/Instagram_logo.png" alt="布川仁美Instagram">
+                </a>
+            </div>
+            <div class="nav-pc-sns-share">
+                <span>Share</span>
+                <a href="https://twitter.com/intent/tweet?text=布川仁美 official website&url=https://nshima98.github.io/HitomiHP2/" rel="nofollow noopener" target="_blank">
+                    <img class="sns-logo" src="images/X_logo.png" alt="Xでシェア">
+                </a>
+                <a href="http://www.facebook.com/share.php?u=https://nshima98.github.io/HitomiHP2/" rel="nofollow noopener" target="_blank">
+                    <img class="sns-logo" src="images/Facebook_Logo_Secondary.png" alt="facebookでシェア">
+                </a>
+                <a href="http://line.me/R/msg/text/?https://nshima98.github.io/HitomiHP2/" target="_blank" rel="nofollow noopener">
+                    <img class="sns-logo" src="images/LINE_logo.png" alt="LINEでシェア">
+                </a>
+            </div>
+        </div>
+    `;
+
+    // 全要素の挿入
+    navPcBox.innerHTML = titleHTML + navLinksHTML + snsHTML;
 }
 
-// 要素の生成をjQueryの準備完了後に実行
-$(document).ready(function() {
-    createNavPcBox();
-    createFooter();
-});
-
-// ハンバーガーメニューの処理
-$(function(){
-    // ... existing code ...
-});
-
-// 要素生成関数の定義
-function createNavPcBox() {
-    // ... existing code ...
-}
-
-// ページ読み込み時に実行する処理
-window.addEventListener('load', function() {
-    // 要素の生成
-    createNavPcBox();
-    createFooter();
-    
-    // ハンバーガーメニューの処理
-    const openBtnPC = document.querySelector('.hbg-btn-open');
-    const closeBtnPC = document.querySelector('.hbg-btn-close');
-    const navPcActive = document.querySelector('.nav-pc');
+// ハンバーガーメニューの機能を初期化する関数
+function initializeHamburgerMenu() {
+    const hamburgerOpen = document.querySelector('.hbg-btn-open');
+    const hamburgerClose = document.querySelector('.hbg-btn-close');
+    const nav = document.querySelector('.nav-pc');
     const overlay = document.querySelector('.overlay');
-    
-    //NemuOpen
-    openBtnPC.addEventListener('click', () => {
-        openBtnPC.classList.toggle('active');
-        navPcActive.classList.toggle('active');
+
+    if (!hamburgerOpen || !hamburgerClose || !nav || !overlay) return;
+
+    hamburgerOpen.addEventListener('click', () => {
+        nav.classList.add('active');
         overlay.classList.add('active');
     });
-    
-    //NemuClose
-    closeBtnPC.addEventListener('click', () => {
-        openBtnPC.classList.toggle('active');
-        navPcActive.classList.toggle('active');
+
+    hamburgerClose.addEventListener('click', () => {
+        nav.classList.remove('active');
         overlay.classList.remove('active');
     });
-    
-    // オーバーレイをクリックしても閉じられるように
+
     overlay.addEventListener('click', () => {
-        openBtnPC.classList.remove('active');
-        navPcActive.classList.remove('active');
+        nav.classList.remove('active');
         overlay.classList.remove('active');
     });
+}
+
+// DOMContentLoadedイベントで実行順序を制御
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // 1. まずナビゲーション要素を生成
+        await new Promise((resolve) => {
+            generateNavigation();
+            resolve();
+        });
+        
+        // 2. ナビゲーション要素の生成が完了してから、ハンバーガーメニューを初期化
+        const nav = document.querySelector('.nav-pc');
+        if (nav && nav.querySelector('.nav-pc-box').children.length > 0) {
+            initializeHamburgerMenu();
+        } else {
+            console.error('ナビゲーション要素の生成が正常に完了していません');
+        }
+    } catch (error) {
+        console.error('ナビゲーションの初期化中にエラーが発生しました:', error);
+    }
 });
