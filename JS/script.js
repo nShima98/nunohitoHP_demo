@@ -96,98 +96,41 @@ document.addEventListener('DOMContentLoaded', function() {
     // オーバーレイクリック時のメニュー閉じる処理を削除
 });
 
-// ナビゲーション要素を生成する関数
-function generateNavigation() {
-    const navPcBox = document.querySelector('.nav-pc-box');
-    if (!navPcBox) return;
-
-    // タイトル部分の生成
-    const titleHTML = `
-        <div class="nav-pc-title">
-            <h1>Hitomi Nunokawa</h1>
-            <h2>OfficialWebsite</h2>
-        </div>
-    `;
-
-    // ナビゲーションリンクの生成
-    const navLinks = [
-        { href: 'index.html', text: 'Top' },
-        { href: 'news.html', text: 'News' },
-        { href: 'works.html', text: 'Works' },
-        { href: 'profile.html', text: 'Profile' },
-        { href: 'gallery.html', text: 'Gallery' }
-    ];
-
-    const navLinksHTML = `
-        <div class="nav-pc-link">
-            ${navLinks.map(link => `
-                <a class="nav-pc-link-btn" href="${link.href}">${link.text}</a>
-            `).join('')}
-        </div>
-    `;
-
-    // SNSセクションの生成
-    const snsHTML = `
-        <div class="nav-pc-sns">
-            <div class="nav-pc-sns-link">
-                <span>Follow</span>
-                <a href="https://x.com/h_T0m_1103" target="_blank" rel="noopener noreferrer">
-                    <img class="sns-logo" src="images/X_logo.png" alt="布川仁美X">
-                </a>
-                <a href="https://www.instagram.com/ppppppppppooo___/?hl=ja" target="_blank" rel="noopener noreferrer">
-                    <img class="sns-logo" src="images/Instagram_logo.png" alt="布川仁美Instagram">
-                </a>
-            </div>
-            <div class="nav-pc-sns-share">
-                <span>Share</span>
-                <a href="https://twitter.com/intent/tweet?text=布川仁美 official website&url=https://nshima98.github.io/HitomiHP2/" rel="nofollow noopener" target="_blank">
-                    <img class="sns-logo" src="images/X_logo.png" alt="Xでシェア">
-                </a>
-                <a href="http://www.facebook.com/share.php?u=https://nshima98.github.io/HitomiHP2/" rel="nofollow noopener" target="_blank">
-                    <img class="sns-logo" src="images/Facebook_Logo_Secondary.png" alt="facebookでシェア">
-                </a>
-                <a href="http://line.me/R/msg/text/?https://nshima98.github.io/HitomiHP2/" target="_blank" rel="nofollow noopener">
-                    <img class="sns-logo" src="images/LINE_logo.png" alt="LINEでシェア">
-                </a>
-            </div>
-        </div>
-    `;
-
-    // 全要素の挿入
-    navPcBox.innerHTML = titleHTML + navLinksHTML + snsHTML;
-}
-
-// ハンバーガーメニューの機能を初期化する関数
-function initializeHamburgerMenu() {
-    const hamburgerOpen = document.querySelector('.hbg-btn-open');
-    const hamburgerClose = document.querySelector('.hbg-btn-close');
-    const nav = document.querySelector('.nav-pc');
-    const overlay = document.querySelector('.overlay');
-
-    if (!hamburgerOpen || !hamburgerClose || !nav || !overlay) return;
-
-    hamburgerOpen.addEventListener('click', () => {
-        nav.classList.add('active');
-        overlay.classList.add('active');
-    });
-
-    hamburgerClose.addEventListener('click', () => {
-        nav.classList.remove('active');
-        overlay.classList.remove('active');
-    });
-
-    overlay.addEventListener('click', () => {
-        nav.classList.remove('active');
-        overlay.classList.remove('active');
-    });
-}
-
-// フッター要素を生成する関数
-function generateFooter() {
+// 共通要素を生成する関数
+function generateCommonElements() {
     return new Promise((resolve) => {
+        // ナビゲーション要素の生成
+        const navBox = document.querySelector('.nav-pc-box');
+        const navHTML = `
+            <div class="nav-pc-title">
+                <h1>Hitomi Nunokawa<h1>
+                <h2>OfficialWebsite</h2>
+            </div>
+            <div class="nav-pc-link">
+                <a class="nav-pc-link-btn" href="index.html">Top</a>
+                <a class="nav-pc-link-btn" href="news.html">News</a>
+                <a class="nav-pc-link-btn" href="works.html">Works</a>
+                <a class="nav-pc-link-btn" href="profile.html">Profile</a>
+                <a class="nav-pc-link-btn" href="gallery.html">Gallery</a>
+            </div>
+            <div class="nav-pc-sns">
+                <div class="nav-pc-sns-link">
+                    <span>Follow</span>
+                    <a href="https://x.com/h_T0m_1103" target="_blank" rel="noopener noreferrer"><img class="sns-logo" src="images/X_logo.png" alt="布川仁美X"></a>
+                    <a href="https://www.instagram.com/ppppppppppooo___/?hl=ja" target="_blank" rel="noopener noreferrer"><img class="sns-logo" src="images/Instagram_logo.png" alt="布川仁美Instagram"></a>
+                </div>
+                <div class="nav-pc-sns-share">
+                    <span>Share</span>
+                    <a href="https://twitter.com/intent/tweet?text=布川仁美 official website&url=https://nshima98.github.io/HitomiHP2/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/X_logo.png" alt="Xでシェア"></a>
+                    <a href="http://www.facebook.com/share.php?u=https://nshima98.github.io/HitomiHP2/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/Facebook_Logo_Secondary.png" alt="facebookでシェア"></a>
+                    <a href="http://line.me/R/msg/text/?https://nshima98.github.io/HitomiHP2/" target="_blank" rel="nofollow noopener"><img class="sns-logo" src="images/LINE_logo.png" alt="LINEでシェア"></a>
+                </div>
+            </div>
+        `;
+        navBox.innerHTML = navHTML;
+
+        // フッター要素の生成
         const footer = document.querySelector('footer');
-        
-        // フッターの内容を生成
         const footerHTML = `
             <nav id="footer-link">
                 <a href="index.html">Top</a>
@@ -211,8 +154,8 @@ function generateFooter() {
             </div>
             <span id="footer-name">布川仁美 official</span>
         `;
-        
         footer.innerHTML = footerHTML;
+
         resolve();
     });
 }
@@ -220,16 +163,13 @@ function generateFooter() {
 // DOMContentLoadedイベントで実行
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        // 1. まずナビゲーション要素を生成
-        await generateNavigation();
+        // 共通要素を生成
+        await generateCommonElements();
         
-        // 2. フッター要素を生成
-        await generateFooter();
-        
-        // 3. ハンバーガーメニューを初期化
+        // ハンバーガーメニューを初期化
         initializeHamburgerMenu();
         
-        // 4. その他の初期化処理（必要に応じて）
+        // その他の初期化処理（必要に応じて）
         // ...
         
     } catch (error) {
