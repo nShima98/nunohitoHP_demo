@@ -194,8 +194,8 @@ function createFooter() {
     footer.appendChild(footerName);
 }
 
-// 要素の生成を最初に行う
-document.addEventListener('DOMContentLoaded', () => {
+// 要素の生成をjQueryの準備完了後に実行
+$(document).ready(function() {
     createNavPcBox();
     createFooter();
 });
