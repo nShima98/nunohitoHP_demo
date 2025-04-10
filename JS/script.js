@@ -184,47 +184,55 @@ function initializeHamburgerMenu() {
 
 // フッター要素を生成する関数
 function generateFooter() {
-    const footer = document.querySelector('footer');
-    
-    // フッターの内容を生成
-    const footerHTML = `
-        <nav id="footer-link">
-            <a href="index.html">Top</a>
-            <a href="news.html">News</a>
-            <a href="works.html">Works</a>
-            <a href="profile.html">Profile</a>
-            <a href="gallery.html">Gallery</a>
-        </nav>
-        <div id="footer-sns">
-            <nav id="sns-link">
-                <span>Follow</span>
-                <a href="https://x.com/h_T0m_1103" target="_blank" rel="noopener noreferrer"><img class="sns-logo" src="images/X_logo.png" alt="布川仁美X"></a>
-                <a href="https://www.instagram.com/ppppppppppooo___/?hl=ja" target="_blank" rel="noopener noreferrer"><img class="sns-logo" src="images/Instagram_logo.png" alt="布川仁美Instagram"></a>
+    return new Promise((resolve) => {
+        const footer = document.querySelector('footer');
+        
+        // フッターの内容を生成
+        const footerHTML = `
+            <nav id="footer-link">
+                <a href="index.html">Top</a>
+                <a href="news.html">News</a>
+                <a href="works.html">Works</a>
+                <a href="profile.html">Profile</a>
+                <a href="gallery.html">Gallery</a>
             </nav>
-            <nav id="sns-share">
-                <span>Share</span>
-                <a href="https://twitter.com/intent/tweet?text=布川仁美 official website&url=https://nshima98.github.io/HitomiHP2/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/X_logo.png" alt="Xでシェア"></a>
-                <a href="http://www.facebook.com/share.php?u=https://nshima98.github.io/HitomiHP2/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/Facebook_Logo_Secondary.png" alt="facebookでシェア"></a>
-                <a href="http://line.me/R/msg/text/?https://nshima98.github.io/HitomiHP2/" target="_blank" rel="nofollow noopener"><img class="sns-logo" src="images/LINE_logo.png" alt="LINEでシェア"></a>
-            </nav>
-        </div>
-        <span id="footer-name">布川仁美 official</span>
-    `;
-    
-    footer.innerHTML = footerHTML;
+            <div id="footer-sns">
+                <nav id="sns-link">
+                    <span>Follow</span>
+                    <a href="https://x.com/h_T0m_1103" target="_blank" rel="noopener noreferrer"><img class="sns-logo" src="images/X_logo.png" alt="布川仁美X"></a>
+                    <a href="https://www.instagram.com/ppppppppppooo___/?hl=ja" target="_blank" rel="noopener noreferrer"><img class="sns-logo" src="images/Instagram_logo.png" alt="布川仁美Instagram"></a>
+                </nav>
+                <nav id="sns-share">
+                    <span>Share</span>
+                    <a href="https://twitter.com/intent/tweet?text=布川仁美 official website&url=https://nshima98.github.io/HitomiHP2/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/X_logo.png" alt="Xでシェア"></a>
+                    <a href="http://www.facebook.com/share.php?u=https://nshima98.github.io/HitomiHP2/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/Facebook_Logo_Secondary.png" alt="facebookでシェア"></a>
+                    <a href="http://line.me/R/msg/text/?https://nshima98.github.io/HitomiHP2/" target="_blank" rel="nofollow noopener"><img class="sns-logo" src="images/LINE_logo.png" alt="LINEでシェア"></a>
+                </nav>
+            </div>
+            <span id="footer-name">布川仁美 official</span>
+        `;
+        
+        footer.innerHTML = footerHTML;
+        resolve();
+    });
 }
 
 // DOMContentLoadedイベントで実行
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. まずナビゲーション要素を生成
-    generateNavigation()
-        .then(() => {
-            // 2. フッター要素を生成
-            generateFooter();
-            // 3. ハンバーガーメニューを初期化
-            initializeHamburgerMenu();
-        })
-        .catch(error => {
-            console.error('ナビゲーションの生成に失敗しました:', error);
-        });
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // 1. まずナビゲーション要素を生成
+        await generateNavigation();
+        
+        // 2. フッター要素を生成
+        await generateFooter();
+        
+        // 3. ハンバーガーメニューを初期化
+        initializeHamburgerMenu();
+        
+        // 4. その他の初期化処理（必要に応じて）
+        // ...
+        
+    } catch (error) {
+        console.error('要素の生成に失敗しました:', error);
+    }
 });
