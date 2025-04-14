@@ -959,6 +959,12 @@ PC用スタイル
         letter-spacing: 3px;
         text-align: center;
     }
+    .news_page_title > h1 > span{
+        color: #F39518;
+        font-size: 18px;
+        font-weight: 200;
+        margin: 0;
+    }
     .news-date{
         font-size: 12px;
         font-weight: 100;
@@ -2502,6 +2508,12 @@ PC用スタイル
         margin: 0;
         letter-spacing: 3px;
         text-align: center;
+    }
+    .news_page_title > h1 > span{
+        color: #F39518;
+        font-size: 14px;
+        font-weight: 200;
+        margin: 0;
     }
     .news-date{
         font-size: 12px;
