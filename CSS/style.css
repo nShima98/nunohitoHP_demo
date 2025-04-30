@@ -1276,7 +1276,8 @@ PC用スタイル
     }
     /*劇中写真 slider*/
     .wo-slider{
-    margin: 20px 0 75px; 
+    margin: 20px auto 75px; 
+    max-width: 1024px;
     }
     .wo-slider-box{
     padding: 0;
