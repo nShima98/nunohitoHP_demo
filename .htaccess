@@ -4,9 +4,8 @@ RewriteEngine on
 RewriteCond %{THE_REQUEST} ^.*/index.html
 RewriteRule ^(.*)index.html$ http://hitominunokawa.com [R=301,L]
 
-# .htmlを非表示にする
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
+# .htmlへの直接アクセスをリダイレクト
+RewriteCond %{THE_REQUEST} \.html
 RewriteRule ^(.*)\.html$ $1 [R=301,L]
 
 # .htmlなしでアクセスされた場合の内部リダイレクト
