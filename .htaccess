@@ -1,19 +1,8 @@
-RewriteEngine on
-
-# index.htmlをリダイレクト
-RewriteCond %{THE_REQUEST} ^.*/index.html
-RewriteRule ^(.*)index.html$ http://hitominunokawa.com [R=301,L]
-
-# .htmlへの直接アクセスをリダイレクト
-RewriteCond %{THE_REQUEST} \.html
-RewriteRule ^(.*)\.html$ $1 [R=301,L]
-
-# .htmlなしでアクセスされた場合の内部リダイレクト
+RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [L]
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
 
-# .phpファイルの処理
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php
+# 既存の.html付きURLへのアクセスを.htmlなしのURLにリダイレクト
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+RewriteRule ^ %1 [R=301,L] 
