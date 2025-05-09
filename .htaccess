@@ -1,0 +1,20 @@
+RewriteEngine on
+
+# index.htmlをリダイレクト
+RewriteCond %{THE_REQUEST} ^.*/index.html
+RewriteRule ^(.*)index.html$ http://hitominunokawa.com [R=301,L]
+
+# .htmlを非表示にする
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)\.html$ $1 [R=301,L]
+
+# .htmlなしでアクセスされた場合の内部リダイレクト
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# .phpファイルの処理
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
