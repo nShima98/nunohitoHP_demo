@@ -1,7 +1,7 @@
 $(function(){
  
     var href =location.href; //1.URLを取得しエンコードする
-    var getTitle = $('.works_title').html(); //2.ページのタイトルを取得
+    var getTitle = $('.works_title').text(); //2.ページのタイトルを取得（HTMLタグを除去）
      
     //3.URLを取得しエンコードする
     var snsUrl = encodeURIComponent(href);
@@ -17,7 +17,7 @@ $(function(){
         //X.FB.LINEでシェア
         //LINE
         case 'page-share-line':
-        $(this).attr('href','http://line.me/R/msg/text/?'+ snsTitle +'%20'+ snsUrl);
+        $(this).attr('href','http://line.me/R/msg/text/?'+ snsTitle +'%0A'+ snsUrl);
         break;
         //FB
         case 'page-share-facebook':
@@ -25,7 +25,7 @@ $(function(){
         break;
         //X
         case 'page-share-X':
-        $(this).attr('href','https://twitter.com/intent/tweet?text='+ snsTitle + '&url='+ snsUrl);
+        $(this).attr('href','https://twitter.com/intent/tweet?text='+ snsTitle + '%0A' + snsUrl);
         break;
       }
       });
