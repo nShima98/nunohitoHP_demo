@@ -1712,6 +1712,153 @@ PC用スタイル
     #fanclub-art{
         margin: 0 30px 30px ;
     }
+
+    /*-----404ページ-----*/
+    .error-section {
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 15px;
+    }
+    
+    .error-background {
+        background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+        border-radius: 15px;
+        padding: 40px 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .error-container {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .error-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    .error-code {
+        font-size: 80px;
+        font-weight: 300;
+        color: #F39518;
+        margin: 0;
+    }
+    
+    .error-title {
+        font-size: 24px;
+        font-weight: 200;
+        color: #333;
+        margin: 0;
+        line-height: 1.4;
+    }
+    
+    .error-message {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+        margin: 0;
+        font-weight: 150;
+        max-width: 100%;
+    }
+    
+    .error-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .error-btn {
+        padding: 15px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 200;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        text-align: center;
+        width: auto;
+    }
+    
+    .error-btn-primary {
+        background-color: #F39518;
+        color: white;
+    }
+    
+    .error-btn-primary:hover {
+        background-color: #e0850f;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(243, 149, 24, 0.3);
+    }
+    
+    .error-btn-secondary {
+        background-color: transparent;
+        color: #F39518;
+        border-color: #F39518;
+    }
+    
+    .error-btn-secondary:hover {
+        background-color: #F39518;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(243, 149, 24, 0.3);
+    }
+    
+    .error-navigation {
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 1px solid #ddd;
+        width: 100%;
+    }
+    
+    .error-nav-title {
+        font-size: 20px;
+        font-weight: 300;
+        color: #333;
+        margin: 0 0 15px 0;
+    }
+    
+    .error-nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .error-nav-item {
+        margin: 0;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .error-nav-link {
+        text-decoration: none;
+        color: #666;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 12px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        display: block;
+        text-align: center;
+    }
+    
+    .error-nav-link:hover {
+        color: #F39518;
+        background-color: rgba(243, 149, 24, 0.1);
+        transform: translateY(-1px);
+    }
 }
 
 @media screen and (Max-width: 767px){
@@ -3250,5 +3397,148 @@ PC用スタイル
     /*メイン*/
     #fanclub-art{
         margin: 0 30px 30px ;
+    }
+
+    /*-----404ページ-----*/
+    .error-section {
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+    }
+    
+    .error-background {
+        background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+        border-radius: 20px;
+        padding: 60px 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .error-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .error-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .error-code {
+        font-size: 48px;
+        font-weight: 300;
+        color: #F39518;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .error-title {
+        font-size: 18px;
+        font-weight: 150;
+        color: #333;
+        margin: 0;
+    }
+    
+    .error-message {
+        font-size: 18px;
+        font-weight: 100;
+        color: #666;
+        line-height: 1.6;
+        margin: 0;
+        max-width: 500px;
+    }
+    
+    .error-buttons {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .error-btn {
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        min-width: 180px;
+        text-align: center;
+    }
+    
+    .error-btn-primary {
+        background-color: #F39518;
+        color: white;
+    }
+    
+    .error-btn-primary:hover {
+        background-color: #e0850f;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(243, 149, 24, 0.3);
+    }
+    
+    .error-btn-secondary {
+        background-color: transparent;
+        color: #F39518;
+        border-color: #F39518;
+    }
+    
+    .error-btn-secondary:hover {
+        background-color: #F39518;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(243, 149, 24, 0.3);
+    }
+    
+    .error-navigation {
+        margin-top: 40px;
+        padding-top: 40px;
+        border-top: 1px solid #ddd;
+        width: 100%;
+    }
+    
+    .error-nav-title {
+        font-size: 24px;
+        font-weight: 300;
+        color: #333;
+        margin: 0 0 20px 0;
+    }
+    
+    .error-nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .error-nav-item {
+        margin: 0;
+    }
+    
+    .error-nav-link {
+        text-decoration: none;
+        color: #666;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        display: block;
+    }
+    
+    .error-nav-link:hover {
+        color: #F39518;
+        background-color: rgba(243, 149, 24, 0.1);
+        transform: translateY(-1px);
     }
 }

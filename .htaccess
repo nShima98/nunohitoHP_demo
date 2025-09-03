@@ -1,13 +1,23 @@
+# 404エラーページの設定
+ErrorDocument 404 /404.html
+
+# 存在しないファイルやディレクトリへのアクセスを404にリダイレクト
 RewriteEngine On
-
-# トップページのリダイレクト
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+index\.html [NC]
-RewriteRule ^ / [R=301,L]
-
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html [NC,L]
+RewriteRule ^(.*)$ /404.html [L,R=302]
 
-# 既存の.html付きURLへのアクセスを.htmlなしのURLにリダイレクト
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
-RewriteRule ^ %1 [R=301,L] 
+# セキュリティ設定
+Options -Indexes
+
+# キャッシュ設定
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
