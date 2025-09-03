@@ -32,6 +32,10 @@ PC用スタイル
     }
 
     /*===全ページ共通要素===*/
+    /*PC用のブレークポイント*/
+    .br-sp{
+        display: none;
+    }
     /*フッター*/
     footer{
         background-color: #F39518;
@@ -1703,6 +1707,10 @@ PC用スタイル
         sans-serif;;
     }
     /*===全ページ共通要素===*/
+    /*スマホ用のブレークポイント*/
+    .br-pc{
+        display: block;
+    }
     /*ナビゲーションのリンクの装飾設定*(ヘッダー)*/
     .hbg-btn-open{
         position: absolute;
