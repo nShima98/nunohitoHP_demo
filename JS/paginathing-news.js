@@ -22,16 +22,17 @@
   (i.prototype = {
     // 保存されたページ番号を取得
     getSavedPage: function () {
-      // 他のページから遷移してきた場合は1ページ目から開始
-      var referrer = document.referrer;
-      var currentPage = window.location.pathname.split('/').pop();
+      // セッションストレージを使ってページの初回訪問かどうかを判定
+      var sessionKey = 'newsPageVisited';
+      var isFirstVisit = !sessionStorage.getItem(sessionKey);
       
-      // リファラーが存在し、かつ現在のページと同じでない場合（他のページから遷移）
-      if (referrer && !referrer.includes(currentPage)) {
+      // 初回訪問（他のページから遷移）の場合は1ページ目から開始
+      if (isFirstVisit) {
+        sessionStorage.setItem(sessionKey, 'true');
         return 1;
       }
       
-      // 同じページからのリロードの場合は保存されたページを取得
+      // 同じページ内でのリロードの場合は保存されたページを取得
       // URLハッシュからページ番号を取得
       var hash = window.location.hash;
       if (hash && hash.match(/#news-page-(\d+)/)) {
