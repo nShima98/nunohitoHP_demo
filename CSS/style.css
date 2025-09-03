@@ -1426,6 +1426,22 @@ PC用スタイル
         opacity: .7;
     }
     
+    /* 省略記号のスタイル */
+    .pagination .ellipsis {
+        margin: 0 5px;
+        color: #F39518;
+        font-weight: bold;
+        pointer-events: none;
+    }
+    
+    .pagination .ellipsis span {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+    }
+    
     /*-----Profileページ-----*/
     /*ヘッダー*/
     #pr-box{

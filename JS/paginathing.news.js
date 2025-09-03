@@ -24,12 +24,12 @@
     getSavedPage: function () {
       // URLハッシュからページ番号を取得
       var hash = window.location.hash;
-      if (hash && hash.match(/#page-(\d+)/)) {
-        return parseInt(hash.match(/#page-(\d+)/)[1]);
+      if (hash && hash.match(/#news-page-(\d+)/)) {
+        return parseInt(hash.match(/#news-page-(\d+)/)[1]);
       }
       
       // ローカルストレージからページ番号を取得
-      var savedPage = localStorage.getItem('worksCurrentPage');
+      var savedPage = localStorage.getItem('newsCurrentPage');
       if (savedPage) {
         return parseInt(savedPage);
       }
@@ -40,10 +40,10 @@
     // ページ番号を保存
     savePage: function (pageNum) {
       // URLハッシュに保存
-      window.location.hash = '#page-' + pageNum;
+      window.location.hash = '#news-page-' + pageNum;
       
       // ローカルストレージにも保存
-      localStorage.setItem('worksCurrentPage', pageNum.toString());
+      localStorage.setItem('newsCurrentPage', pageNum.toString());
     },
     
     pagination: function (a, e) {
@@ -229,8 +229,8 @@
     });
 
     $(function() {
-      $('.works-box').paginathing({
-      perPage: 12,
+      $('.latest-news-list').paginathing({
+      perPage: 8,
       prevNext: false,
       activeClass: 'navi-active',
       firstText: '<i class="fas fa-angle-double-left"></i>', // "最初ページ"に移動するボタンのテキスト
