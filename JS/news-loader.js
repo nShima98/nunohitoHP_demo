@@ -1,8 +1,8 @@
-// News.jsonからデータを読み込んでnews.htmlに動的に表示するスクリプト
+// news.jsonからデータを読み込んでnews.htmlに動的に表示するスクリプト
 
 $(document).ready(function() {
-    // News.jsonからデータを読み込む
-    $.getJSON('Data/News.json', function(news) {
+    // news.jsonからデータを読み込む
+    $.getJSON('Data/news.json', function(news) {
         // 既存のlatest-news-listの内容をクリア
         $('.latest-news-list').empty();
         
@@ -22,7 +22,7 @@ $(document).ready(function() {
         });
         
     }).fail(function() {
-        console.error('News.jsonの読み込みに失敗しました');
+        console.error('news.jsonの読み込みに失敗しました');
         // エラー時のフォールバック表示
         $('.latest-news-list').html('<li id="latest-news-box"><p>ニュースデータの読み込みに失敗しました。</p></li>');
     });
