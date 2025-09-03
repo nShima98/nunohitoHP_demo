@@ -22,6 +22,16 @@
   (i.prototype = {
     // 保存されたページ番号を取得
     getSavedPage: function () {
+      // 他のページから遷移してきた場合は1ページ目から開始
+      var referrer = document.referrer;
+      var currentPage = window.location.pathname.split('/').pop();
+      
+      // リファラーが存在し、かつ現在のページと同じでない場合（他のページから遷移）
+      if (referrer && !referrer.includes(currentPage)) {
+        return 1;
+      }
+      
+      // 同じページからのリロードの場合は保存されたページを取得
       // URLハッシュからページ番号を取得
       var hash = window.location.hash;
       if (hash && hash.match(/#news-page-(\d+)/)) {
