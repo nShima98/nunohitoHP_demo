@@ -1442,6 +1442,79 @@ PC用スタイル
         text-align: center;
     }
     
+    /* ページ入力フィールドのスタイル */
+    .page-input-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        gap: 8px;
+    }
+    
+    .page-input-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: white;
+        height: 28px;
+    }
+    
+    .page-input {
+        width: 30px;
+        height: 28px;
+        border: none;
+        text-align: center;
+        font-size: 12px;
+        padding: 0 4px;
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+        background-color: transparent;
+        line-height: 28px;
+    }
+    
+    .page-input::-webkit-outer-spin-button,
+    .page-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    .page-total {
+        font-size: 12px;
+        color: #999;
+        padding: 0 6px 0 0;
+        background-color: transparent;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .page-input-wrapper:focus-within {
+        border-color: #F39518;
+        box-shadow: 0 0 0 2px rgba(243, 149, 24, 0.2);
+    }
+    
+    .page-input:focus {
+        outline: none;
+    }
+    
+    .go-to-page-btn {
+        background-color: #F39518;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 5px 10px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .go-to-page-btn:hover {
+        background-color: #e0850f;
+    }
+    }
+    
     /*-----Profileページ-----*/
     /*ヘッダー*/
     #pr-box{
@@ -1559,8 +1632,6 @@ PC用スタイル
         font-weight: 100;
         margin: 0 0 10px 0;
     }
-
-
 
     /*-----Galleryページ-----*/
     /*ヘッダー*/
@@ -1859,8 +1930,10 @@ PC用スタイル
         background-color: rgba(243, 149, 24, 0.1);
         transform: translateY(-1px);
     }
-}
 
+/*=====
+スマホ用スタイル
+=====*/
 @media screen and (Max-width: 767px){
     body{
         max-width: 767px;
@@ -3129,6 +3202,78 @@ PC用スタイル
     
     .pagination .navi-active a {
         color: #fff;
+    }
+    
+    /* ページ入力フィールドのスタイル（モバイル版） */
+    .page-input-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        gap: 8px;
+    }
+    
+    .page-input-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: white;
+        height: 28px;
+    }
+    
+    .page-input {
+        width: 30px;
+        height: 28px;
+        border: none;
+        text-align: center;
+        font-size: 12px;
+        padding: 0 4px;
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+        background-color: transparent;
+        line-height: 28px;
+    }
+    
+    .page-input::-webkit-outer-spin-button,
+    .page-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    .page-total {
+        font-size: 12px;
+        color: #999;
+        padding: 0 6px 0 0;
+        background-color: transparent;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .page-input-wrapper:focus-within {
+        border-color: #F39518;
+        box-shadow: 0 0 0 2px rgba(243, 149, 24, 0.2);
+    }
+    
+    .page-input:focus {
+        outline: none;
+    }
+    
+    .go-to-page-btn {
+        background-color: #F39518;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 5px 10px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .go-to-page-btn:hover {
+        background-color: #e0850f;
     }
 
 

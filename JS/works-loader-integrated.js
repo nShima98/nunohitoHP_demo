@@ -364,7 +364,18 @@
             paginationHtml += '<li class="last"><a href="#" data-page="' + totalPages + '"><i class="fas fa-angle-double-right"></i></a></li>';
         }
         
-        paginationHtml += '</ul></nav>';
+        paginationHtml += '</ul>';
+        
+        // ページ入力フィールドを追加
+        paginationHtml += '<div class="page-input-container">';
+        paginationHtml += '<div class="page-input-wrapper">';
+        paginationHtml += '<input type="number" id="pageInput" class="page-input" min="1" max="' + totalPages + '" value="' + currentPage + '">';
+        paginationHtml += '<span class="page-total">/' + totalPages + '</span>';
+        paginationHtml += '</div>';
+        paginationHtml += '<button type="button" id="goToPageBtn" class="go-to-page-btn">移動</button>';
+        paginationHtml += '</div>';
+        
+        paginationHtml += '</nav>';
         
         // ページネーションを追加
         $('.works-box').after(paginationHtml);
@@ -374,6 +385,38 @@
             e.preventDefault();
             var pageNum = parseInt($(this).data('page'));
             loadPage(pageNum);
+        });
+        
+        // ページ入力フィールドのイベントハンドラーを設定
+        $('#goToPageBtn').click(function() {
+            var inputPage = parseInt($('#pageInput').val());
+            
+            // 入力値の検証
+            if (isNaN(inputPage) || inputPage < 1 || inputPage > totalPages) {
+                alert('1から' + totalPages + 'の範囲でページ番号を入力してください。');
+                $('#pageInput').val(currentPage); // 現在のページに戻す
+                return;
+            }
+            
+            loadPage(inputPage);
+        });
+        
+        // Enterキーでもページ移動できるようにする
+        $('#pageInput').keypress(function(e) {
+            if (e.which === 13) { // Enterキー
+                $('#goToPageBtn').click();
+            }
+        });
+        
+        // 入力値が変更されたときにリアルタイムで検証
+        $('#pageInput').on('input', function() {
+            var inputPage = parseInt($(this).val());
+            
+            if (inputPage > totalPages) {
+                $(this).val(totalPages);
+            } else if (inputPage < 1 && $(this).val() !== '') {
+                $(this).val(1);
+            }
         });
     }
     
