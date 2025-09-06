@@ -1513,7 +1513,6 @@ PC用スタイル
     .go-to-page-btn:hover {
         background-color: #e0850f;
     }
-    }
     
     /*-----Profileページ-----*/
     /*ヘッダー*/
@@ -1930,6 +1929,7 @@ PC用スタイル
         background-color: rgba(243, 149, 24, 0.1);
         transform: translateY(-1px);
     }
+}
 
 /*=====
 スマホ用スタイル

@@ -3016,6 +3016,9 @@
                 speed: 700,
                 infinite: true,
                 variableWidth: true,
+                arrows: true,
+                prevArrow: '<button class="slick-prev" aria-label="前へ" type="button">←</button>',
+                nextArrow: '<button class="slick-next" aria-label="次へ" type="button">→</button>',
             });
         });
 }));
