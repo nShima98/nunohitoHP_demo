@@ -33,7 +33,9 @@ $(function(){
 
     function copyUrl() {
         var url = location.href;
-        navigator.clipboard.writeText(url).then(function() {
+        // 拡張子を除去（.html, .htm, .php等）
+        var cleanUrl = url.replace(/\.(html|htm|php|asp|aspx|jsp)$/i, '');
+        navigator.clipboard.writeText(cleanUrl).then(function() {
             // メッセージ表示用の要素を作成
             var message = $('<div class="copy-message">リンクをコピー<br class="br-mobile">しました！</div>');
             
