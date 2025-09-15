@@ -21,6 +21,7 @@
             defer>
         </script>
         <script src="JS/lightbox-config.js" defer></script>
+        <script src="JS/video-player.js" defer></script>
     </head>
 
     <body>
@@ -109,7 +110,38 @@
                 </section>
                 <section class="ga-contents-box">
                     <h1>Movie</h1>
-                    <p>Coming soon</p>
+                    <h2>開発用サンプル</h2>
+                    <div class="video-player-container">
+                        <video id="customVideo" preload="metadata" poster="movie/gallery_thumbnail.png">
+                            <source src="movie/Top_MovieDemo.mp4" type="video/mp4">
+                            お使いのブラウザは動画をサポートしていません。
+                        </video>
+                        <div class="video-thumbnail-overlay">
+                            <img src="movie/gallery_thumbnail.png" alt="動画サムネイル" class="video-thumbnail">
+                            <div class="play-button-overlay">
+                                <div class="play-icon">▶</div>
+                            </div>
+                        </div>
+                        <div class="video-controls">
+                            <button id="playPauseBtn" class="control-btn play-btn">▶</button>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                    <div class="progress-handle"></div>
+                                </div>
+                            </div>
+                            <div class="time-display">
+                                <span id="currentTime">0:00</span>
+                                <span class="time-separator">/</span>
+                                <span id="totalTime">0:00</span>
+                            </div>
+                            <button id="muteBtn" class="control-btn mute-btn">🔊</button>
+                            <div class="volume-container">
+                                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.1" value="1">
+                            </div>
+                            <button id="fullscreenBtn" class="control-btn fullscreen-btn">⛶</button>
+                        </div>
+                    </div>
                 </section>
             </article>
 
