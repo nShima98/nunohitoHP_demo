@@ -121,7 +121,7 @@ function generateCommonElements() {
                 </div>
                 <div class="nav-pc-sns-share">
                     <span>Share</span>
-                    <a href="https://twitter.com/intent/tweet?text=布川仁美 official website&url=https://hitominunokawa.com/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/X_logo.png" alt="Xでシェア"></a>
+                    <a href="https://twitter.com/intent/tweet?text=布川仁美 official website%0A&url=https://hitominunokawa.com/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/X_logo.png" alt="Xでシェア"></a>
                     <a href="http://www.facebook.com/share.php?u=https://hitominunokawa.com/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/Facebook_Logo_Secondary.png" alt="facebookでシェア"></a>
                     <a href="http://line.me/R/msg/text/?https://hitominunokawa.com/" target="_blank" rel="nofollow noopener"><img class="sns-logo" src="images/LINE_logo.png" alt="LINEでシェア"></a>
                 </div>
@@ -147,7 +147,7 @@ function generateCommonElements() {
                 </nav>
                 <nav id="sns-share">
                     <span>Share</span>
-                    <a href="https://twitter.com/intent/tweet?text=布川仁美 official website&url=https://hitominunokawa.com/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/X_logo.png" alt="Xでシェア"></a>
+                    <a href="https://twitter.com/intent/tweet?text=布川仁美 official website%0A&url=https://hitominunokawa.com/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/X_logo.png" alt="Xでシェア"></a>
                     <a href="http://www.facebook.com/share.php?u=https://hitominunokawa.com/" rel="nofollow noopener" target="_blank"><img class="sns-logo" src="images/Facebook_Logo_Secondary.png" alt="facebookでシェア"></a>
                     <a href="http://line.me/R/msg/text/?https://hitominunokawa.com/" target="_blank" rel="nofollow noopener"><img class="sns-logo" src="images/LINE_logo.png" alt="LINEでシェア"></a>
                 </nav>
