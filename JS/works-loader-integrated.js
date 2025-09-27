@@ -268,6 +268,11 @@
             // ページネーションボタンを生成
             generatePaginationButtons(currentPage, totalPages);
             
+            // 初回アクセス時にハッシュを設定
+            if (!window.location.hash) {
+                window.location.hash = '#page-1';
+            }
+            
         }).fail(function() {
             console.error('works.jsonの読み込みに失敗しました');
             // エラー時のフォールバック表示

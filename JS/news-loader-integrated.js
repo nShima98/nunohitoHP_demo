@@ -36,8 +36,8 @@
       // 同じページからのリロードの場合は保存されたページを取得
       // URLハッシュからページ番号を取得
       var hash = window.location.hash;
-      if (hash && hash.match(/#news-page-(\d+)/)) {
-        return parseInt(hash.match(/#news-page-(\d+)/)[1]);
+      if (hash && hash.match(/#page-(\d+)/)) {
+        return parseInt(hash.match(/#page-(\d+)/)[1]);
       }
       
       // ローカルストレージからページ番号を取得
@@ -52,7 +52,7 @@
     // ページ番号を保存
     savePage: function (pageNum) {
       // URLハッシュに保存
-      window.location.hash = '#news-page-' + pageNum;
+      window.location.hash = '#page-' + pageNum;
       
       // ローカルストレージにも保存
       localStorage.setItem('newsCurrentPage', pageNum.toString());
@@ -268,6 +268,11 @@
             // ページネーションボタンを生成
             generatePaginationButtons(currentPage, totalPages);
             
+            // 初回アクセス時にハッシュを設定
+            if (!window.location.hash) {
+                window.location.hash = '#page-1';
+            }
+            
         }).fail(function() {
             console.error('news.jsonの読み込みに失敗しました');
             // エラー時のフォールバック表示
@@ -289,8 +294,8 @@
         // 同じページからのリロードの場合は保存されたページを取得
         // URLハッシュからページ番号を取得
         var hash = window.location.hash;
-        if (hash && hash.match(/#news-page-(\d+)/)) {
-            var pageNum = parseInt(hash.match(/#news-page-(\d+)/)[1]);
+        if (hash && hash.match(/#page-(\d+)/)) {
+            var pageNum = parseInt(hash.match(/#page-(\d+)/)[1]);
             var totalPages = Math.ceil(totalItems / perPage);
             return Math.min(pageNum, totalPages); // 最大ページ数を超えないように
         }
@@ -380,7 +385,7 @@
     // 指定されたページを読み込む関数
     function loadPage(pageNum) {
         // URLハッシュに保存
-        window.location.hash = '#news-page-' + pageNum;
+        window.location.hash = '#page-' + pageNum;
         
         // ローカルストレージにも保存
         localStorage.setItem('newsCurrentPage', pageNum.toString());
@@ -395,8 +400,8 @@
     // ブラウザバック/フォワード時の処理
     $(window).on('hashchange', function() {
         var hash = window.location.hash;
-        if (hash && hash.match(/#news-page-(\d+)/)) {
-            var pageNum = parseInt(hash.match(/#news-page-(\d+)/)[1]);
+        if (hash && hash.match(/#page-(\d+)/)) {
+            var pageNum = parseInt(hash.match(/#page-(\d+)/)[1]);
             // ページを再読み込みして状態を同期
             window.location.reload();
         }
