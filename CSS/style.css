@@ -892,7 +892,6 @@ PC用スタイル
     #latest-news-img-box{
         width: 100%;
         height: fit-content;
-        aspect-ratio: 297 / 210;
         margin-bottom: 5px;
         display: flex;
         align-items: flex-end;
@@ -902,7 +901,6 @@ PC用スタイル
         max-width: 100%;
         display: block;
         margin: 0 auto 0;
-        aspect-ratio: 297 / 210;
         object-fit: cover;
     }
     #latest-news-date{
