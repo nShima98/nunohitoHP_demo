@@ -16,9 +16,11 @@ function generateNewsNavigation() {
         const validNews = news.filter(item => item.link !== null);
         
         // 現在のページのインデックスを検索（有効な項目のみで）
+        // 現在のページ名に.htmlを付けてJSONデータと比較
+        const currentPageWithExt = currentPage + '.html';
         let currentIndex = -1;
         for (let i = 0; i < validNews.length; i++) {
-            if (validNews[i].link === currentPage) {
+            if (validNews[i].link === currentPageWithExt) {
                 currentIndex = i;
                 break;
             }

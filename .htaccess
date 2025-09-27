@@ -4,18 +4,31 @@ ErrorDocument 404 /404.html
 # URLリライト設定
 RewriteEngine On
 
+# 拡張子付きURLを拡張子なしにリダイレクト（ブラウザのURL表示を変更）
+RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
+RewriteRule ^ /%1? [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/+(.+)\.php[\s?] [NC]
+RewriteRule ^ /%1? [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/+(.+)\.txt[\s?] [NC]
+RewriteRule ^ /%1? [R=301,L]
+
 # 拡張子付きでも拡張子なしでも同じファイルを表示（内部リライト）
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^\.]+)(\.html)?$ $1.html [L]
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^\.]+)$ $1.html [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^\.]+)(\.php)?$ $1.php [L]
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^([^\.]+)$ $1.php [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^\.]+)(\.txt)?$ $1.txt [L]
+RewriteCond %{DOCUMENT_ROOT}/$1.txt -f
+RewriteRule ^([^\.]+)$ $1.txt [L]
 
 # 存在しないファイルやディレクトリへのアクセスを404にリダイレクト
 RewriteCond %{REQUEST_FILENAME} !-f

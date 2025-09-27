@@ -16,9 +16,11 @@ function generateWorksNavigation() {
         const validWorks = works.filter(item => item.link !== null);
         
         // 現在のページのインデックスを検索（有効な項目のみで）
+        // 現在のページ名に.htmlを付けてJSONデータと比較
+        const currentPageWithExt = currentPage + '.html';
         let currentIndex = -1;
         for (let i = 0; i < validWorks.length; i++) {
-            if (validWorks[i].link === currentPage) {
+            if (validWorks[i].link === currentPageWithExt) {
                 currentIndex = i;
                 break;
             }
@@ -53,13 +55,17 @@ function updateWorksNavigationButtons(prevWorks, nextWorks) {
     
     // 次のWorksボタン（左側）
     if (nextWorks) {
-        const leftBtn = $('<div class="works-btn-left"><a href="' + nextWorks.link + '">次のWorkへ</a></div>');
+        // 拡張子を除去してリダイレクトを回避
+        const cleanLink = nextWorks.link.replace('.html', '');
+        const leftBtn = $('<div class="works-btn-left"><a href="' + cleanLink + '">次のWorkへ</a></div>');
         worksBtnBox.prepend(leftBtn);
     }
     
     // 前のWorksボタン（右側）
     if (prevWorks) {
-        const rightBtn = $('<div class="works-btn-right"><a href="' + prevWorks.link + '">前のWorkへ</a></div>');
+        // 拡張子を除去してリダイレクトを回避
+        const cleanLink = prevWorks.link.replace('.html', '');
+        const rightBtn = $('<div class="works-btn-right"><a href="' + cleanLink + '">前のWorkへ</a></div>');
         worksBtnBox.append(rightBtn);
     }
 }
