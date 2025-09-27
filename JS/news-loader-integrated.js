@@ -391,6 +391,16 @@
         // ページを再読み込み
         window.location.reload();
     }
+    
+    // ブラウザバック/フォワード時の処理
+    $(window).on('hashchange', function() {
+        var hash = window.location.hash;
+        if (hash && hash.match(/#news-page-(\d+)/)) {
+            var pageNum = parseInt(hash.match(/#news-page-(\d+)/)[1]);
+            // ページを再読み込みして状態を同期
+            window.location.reload();
+        }
+    });
 
     // ニュースデータからHTMLを生成する関数
     function createNewsHtml(newsItem) {

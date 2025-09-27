@@ -434,6 +434,16 @@
         // ページを再読み込み
         window.location.reload();
     }
+    
+    // ブラウザバック/フォワード時の処理
+    $(window).on('hashchange', function() {
+        var hash = window.location.hash;
+        if (hash && hash.match(/#page-(\d+)/)) {
+            var pageNum = parseInt(hash.match(/#page-(\d+)/)[1]);
+            // ページを再読み込みして状態を同期
+            window.location.reload();
+        }
+    });
 
     // 作品データからHTMLを生成する関数
     function createWorkHtml(work) {

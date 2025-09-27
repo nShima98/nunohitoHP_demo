@@ -1,8 +1,19 @@
 # 404エラーページの設定
 ErrorDocument 404 /404.html
 
-# 存在しないファイルやディレクトリへのアクセスを404にリダイレクト
+# URLリライト設定
 RewriteEngine On
+
+# .html拡張子を非表示にする
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# index.htmlをindexなしでアクセス可能にする
+RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# 存在しないファイルやディレクトリへのアクセスを404にリダイレクト
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /404.html [L,R=302]

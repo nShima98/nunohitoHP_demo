@@ -894,6 +894,8 @@ PC用スタイル
         height: fit-content;
         aspect-ratio: 297 / 210;
         margin-bottom: 5px;
+        display: flex;
+        align-items: flex-end;
     }
     #latest-news-img{
         height: auto;
@@ -1895,7 +1897,7 @@ PC用スタイル
     }
     
     .error-btn-primary:hover {
-        background-color: #e0850f;
+        background-color: #F39518;
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(243, 149, 24, 0.3);
     }
@@ -2363,7 +2365,7 @@ PC用スタイル
     
     /*TopNewsセクション*/
     #top-news{
-        margin:30px ;
+        margin:30px;
     }
     #tn-backimg{
         position: relative;
@@ -2375,7 +2377,7 @@ PC用スタイル
         user-select: none;
     }
     #tn-box{
-        width: auto;
+        width: 100%;
     }
     #tn-box > h1{
         width: fit-content;
@@ -2730,6 +2732,8 @@ PC用スタイル
         width: 100%;
         height: fit-content;
         margin: auto 0;
+        display: flex;
+        align-items: flex-end;
     }
     #latest-news-text-box{
         margin-left: 5px;
@@ -3329,7 +3333,7 @@ PC用スタイル
     }
     
     .go-to-page-btn:hover {
-        background-color: #e0850f;
+        background-color: #F39518;
     }
 
 
@@ -3686,7 +3690,7 @@ PC用スタイル
     }
     
     .error-btn-primary:hover {
-        background-color: #e0850f;
+        background-color: #F39518;
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(243, 149, 24, 0.3);
     }
