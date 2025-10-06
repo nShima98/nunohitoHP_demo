@@ -16,13 +16,22 @@ function generateWorksNavigation() {
         const validWorks = works.filter(item => item.link !== null);
         
         // 現在のページのインデックスを検索（有効な項目のみで）
-        // 現在のページ名に.htmlを付けてJSONデータと比較
-        const currentPageWithExt = currentPage + '.html';
+        // .html付きでもなしでも対応
         let currentIndex = -1;
         for (let i = 0; i < validWorks.length; i++) {
-            if (validWorks[i].link === currentPageWithExt) {
-                currentIndex = i;
-                break;
+            // 現在のページが.html付きかどうかで比較方法を変える
+            if (currentPage.endsWith('.html')) {
+                // 現在のページが.html付きの場合
+                if (validWorks[i].link === currentPage) {
+                    currentIndex = i;
+                    break;
+                }
+            } else {
+                // 現在のページが.htmlなしの場合
+                if (validWorks[i].link === currentPage + '.html') {
+                    currentIndex = i;
+                    break;
+                }
             }
         }
         
