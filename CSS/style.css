@@ -647,10 +647,9 @@ PC用スタイル
         margin-bottom: 10px;
     }
     #tp-contents1 > p{
-        margin-top: 0;
         font-size: 14px;
         font-weight: 100;
-        margin: 0;
+        margin: 10px 0 0 0;
     }
     #tp-more{
         text-align: right;
